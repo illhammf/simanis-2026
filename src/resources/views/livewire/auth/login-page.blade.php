@@ -109,7 +109,7 @@
 
                 </form>
 
-                <p class="text-center text-blue-300 text-xs mt-6">&copy; {{ date('Y') }} SIMANIS &mdash; All rights reserved</p>
+                <p class="text-center text-blue-300 text-xs mt-6">&copy; {{ date('Y') }} SIMANIS &mdash; All rights reserved By Ilham Firmansyah</p>
             </div>
 
         </div>

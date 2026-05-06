@@ -22,7 +22,7 @@ Livewire::setScriptRoute(function ($handle) {
 Route::get('/', \App\Livewire\Auth\LoginPage::class)->name('login');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('/dashboard', \App\Livewire\Dashboard\DashboardPage::class)->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

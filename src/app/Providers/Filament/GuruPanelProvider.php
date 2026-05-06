@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Guru\Resources\GuruResource\Pages\Dashboard;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -27,6 +28,7 @@ class GuruPanelProvider extends PanelProvider
             ->path('guru')
             ->spa()
             ->login(false)
+            ->homeUrl(fn () => route('filament.guru.pages.dashboard'))
             ->passwordReset()
             ->colors([
                 'primary' => Color::Amber,
@@ -38,8 +40,8 @@ class GuruPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Guru/Widgets'), for: 'App\\Filament\\Guru\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                // Widgets\AccountWidget::class,
+                \App\Filament\Guru\Widgets\ProfileWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,

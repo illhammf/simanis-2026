@@ -33,8 +33,8 @@ class EnsurePanelRole
         /** @var \App\Models\User $user */
         $user = Auth::user();
 
-        if (! $user->hasRole($requiredRole)) {
-            // Redirect to the user's own panel instead of a 403
+        // super_admin can access all panels
+        if (! PanelResolver::canAccess($user, PanelResolver::roleForPath($request->path()) ?? '')) {
             return redirect()->to(PanelResolver::redirectUrl($user));
         }
 

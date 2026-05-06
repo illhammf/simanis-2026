@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources\UserResource\Pages;
 use App\Filament\Admin\Resources\UserResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use STS\FilamentImpersonate\Actions\Impersonate;
 
 class EditUser extends EditRecord
 {
@@ -18,6 +19,7 @@ class EditUser extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Impersonate::make()->record($this->getRecord())->redirectTo(route('dashboard')),
             Actions\DeleteAction::make(),
         ];
     }
