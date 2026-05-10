@@ -30,10 +30,9 @@ services:
     container_name: ${COMPOSE_PROJECT_NAME}_db
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
       interval: 10s
       timeout: 5s
-      retries: 5
     ports:
       - "13306:3306"
     environment:

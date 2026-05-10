@@ -13,6 +13,7 @@ class PanelResolver
         'super_admin' => '/admin',
         'akademik'    => '/adm',
         'guru'        => '/guru',
+        'wali_kelas'  => '/guru',
         'siswa'       => '/siswa',
         'orang_tua'   => '/ortu',
     ];
@@ -24,6 +25,7 @@ class PanelResolver
         'super_admin' => 'admin',
         'akademik'    => 'akademik',
         'guru'        => 'guru',
+        'wali_kelas'  => 'guru',
         'siswa'       => 'siswa',
         'orang_tua'   => 'orang-tua',
     ];
@@ -46,18 +48,19 @@ class PanelResolver
 
     /**
      * Check whether a user is allowed to access a given Filament panel.
-     * Super admins can access all panels, other roles can only access their own panel.
+     * super_admin can access all panels.
      */
     public static function canAccess(User $user, string $panelId): bool
     {
         if (static::roleOf($user) === 'super_admin') {
             return true;
         }
+
         return (static::$panelIds[static::roleOf($user)] ?? null) === $panelId;
     }
 
     /**
-    * Resolve redirect URL after login — always goes to dashboard first.
+     * Resolve redirect URL after login — always goes to dashboard first.
      */
     public static function redirectUrl(User $user): string
     {

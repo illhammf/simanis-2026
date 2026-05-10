@@ -1,11 +1,16 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-DZ_btc0t.css",
+    "file": "assets/app-Das9FXCc.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/filament/admin/theme.css": {
-    "file": "assets/theme-s2zNZ1E7.css",
+    "file": "assets/theme-CEwQEoLR.css",
+    "src": "resources/css/filament/admin/theme.css",
+    "isEntry": true
+  },
+  "resources/css/filament/akademik/theme.css": {
+    "file": "assets/theme-CEwQEoLR.css",
     "src": "resources/css/filament/admin/theme.css",
     "isEntry": true
   },

@@ -67,6 +67,15 @@ class DashboardPage extends Component
                 'color'       => 'green',
             ],
         ],
+        'wali_kelas' => [
+            [
+                'label'       => 'Panel Wali Kelas',
+                'description' => 'Monitor kelas yang Anda walikan, nilai, dan kehadiran siswa.',
+                'icon'        => 'book-open',
+                'url'         => '/guru',
+                'color'       => 'green',
+            ],
+        ],
         'siswa' => [
             [
                 'label'       => 'Akademik Saya',

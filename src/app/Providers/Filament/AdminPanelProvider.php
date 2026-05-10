@@ -3,7 +3,6 @@
 namespace App\Providers\Filament;
 
 use Filament\Enums\ThemeMode;
-use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -50,11 +49,15 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
                 \Awcodes\Overlook\Widgets\OverlookWidget::class,
+                \App\Filament\Widgets\BackToModulWidget::class,
             ])
             ->navigationGroups([
                 NavigationGroup::make()
-                    ->label('Akademik'),
-
+                    ->label('Data Pengguna'),
+                NavigationGroup::make()
+                    ->label('Master Data'),
+                NavigationGroup::make()
+                    ->label('Kurikulum & Pembelajaran'),
                 NavigationGroup::make()
                     ->label('Administration'),
             ])
@@ -63,9 +66,10 @@ class AdminPanelProvider extends PanelProvider
                     ->label(fn () => auth()->user()->name)
                     ->url(fn (): string => EditProfilePage::getUrl())
                     ->icon('heroicon-m-user-circle'),
-                // 'profile' => \Filament\Navigation\MenuItem::make()
-                //     ->label(fn () => auth()->user()->name)
-                //     ->icon('heroicon-m-user-circle'),
+                MenuItem::make()
+                    ->label('Pilihan Modul')
+                    ->url(fn () => route('dashboard'))
+                    ->icon('heroicon-m-squares-2x2'),
             ])
             ->plugins([
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make()
@@ -97,8 +101,22 @@ class AdminPanelProvider extends PanelProvider
                         'auth.password',
                     ]),
                 \Awcodes\Overlook\OverlookPlugin::make()
+                    ->columns([
+                        'default' => 2,
+                        'sm' => 2,
+                        'md' => 4,
+                        'lg' => 4,
+                        'xl' => 4,
+                    ])
                     ->includes([
+                        \App\Filament\Admin\Resources\TeacherResource::class,
+                        \App\Filament\Admin\Resources\StudentResource::class,
+                        \App\Filament\Admin\Resources\OrtuResource::class,
+                        \App\Filament\Admin\Resources\AkademikStaffResource::class,
                         \App\Filament\Admin\Resources\UserResource::class,
+                        \App\Filament\Akademik\Resources\KelasResource::class,
+                        \App\Filament\Akademik\Resources\TahunAjaranResource::class,
+                        \App\Filament\Akademik\Resources\MataPelajaranResource::class,
                     ]),
                 \Joaopaulolndev\FilamentEditProfile\FilamentEditProfilePlugin::make()
                     ->slug('my-profile')
@@ -111,6 +129,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->resources([
                 config('filament-logger.activity_resource'),
+                \App\Filament\Akademik\Resources\TahunAjaranResource::class,
+                \App\Filament\Akademik\Resources\StreamResource::class,
+                \App\Filament\Akademik\Resources\KelasResource::class,
+                \App\Filament\Akademik\Resources\MataPelajaranResource::class,
+                \App\Filament\Akademik\Resources\KurikulumResource::class,
+                \App\Filament\Akademik\Resources\CapaianPembelajaranResource::class,
+                \App\Filament\Akademik\Resources\AlurTujuanPembelajaranResource::class,
+                \App\Filament\Akademik\Resources\TujuanPembelajaranResource::class,
+                \App\Filament\Akademik\Resources\ModulAjarResource::class,
+                \App\Filament\Akademik\Resources\RuanganResource::class,
+                \App\Filament\Akademik\Resources\JadwalPelajaranResource::class,
             ])
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->middleware([
@@ -126,7 +155,7 @@ class AdminPanelProvider extends PanelProvider
                 \Hasnayeen\Themes\Http\Middleware\SetTheme::class,
             ])
             ->authMiddleware([
-                Authenticate::class,
+                \App\Http\Middleware\FilamentAuthenticate::class,
             ]);
     }
 }

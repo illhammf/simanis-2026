@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -23,11 +22,12 @@ class OrangTuaPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->id('orangTua')
+            ->id('orang-tua')
             ->path('ortu')
-            ->spa()
             ->login(false)
-            ->passwordReset()
+            ->spa()
+            //->passwordReset()
+            //->registration()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -39,7 +39,7 @@ class OrangTuaPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/OrangTua/Widgets'), for: 'App\\Filament\\OrangTua\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                \App\Filament\Widgets\BackToModulWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -52,8 +52,14 @@ class OrangTuaPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->userMenuItems([
+                \Filament\Navigation\MenuItem::make()
+                    ->label('Pilihan Modul')
+                    ->url(fn () => route('dashboard'))
+                    ->icon('heroicon-m-squares-2x2'),
+            ])
             ->authMiddleware([
-                Authenticate::class,
+                \App\Http\Middleware\FilamentAuthenticate::class,
             ]);
     }
 }

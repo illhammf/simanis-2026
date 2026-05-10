@@ -3,89 +3,99 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\OrtuResource\Pages;
-use App\Filament\Admin\Resources\OrtuResource\RelationManagers;
 use App\Models\Ortu;
-use Filament\Forms;
+use App\Models\Student;
+use App\Models\User;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class OrtuResource extends Resource
 {
     protected static ?string $model = Ortu::class;
-
-    protected static ?string $navigationIcon = 'heroicon-s-users';
-    protected static ?string $navigationGroup = 'Akademik';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationGroup = 'Data Pengguna';
     protected static ?int $navigationSort = 3;
-    protected static ?string $label = 'Orang Tua';
-    protected static ?string $pluralLabel = 'Orang Tua';
+    protected static ?string $navigationLabel = 'Orang Tua';
+    protected static ?string $modelLabel = 'Orang Tua';
+    protected static ?string $pluralModelLabel = 'Orang Tua';
 
     public static function form(Form $form): Form
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('phone')
-                    ->tel()
-                    ->required()
-                    ->maxLength(255),
-            ]);
+        return $form->schema([
+            TextInput::make('nio')
+                ->label('NIO (Nomor Induk Orang Tua)')
+                ->required()
+                ->unique(ignoreRecord: true)
+                ->maxLength(20),
+
+            TextInput::make('name')
+                ->label('Nama Lengkap')
+                ->required()
+                ->maxLength(100),
+
+            TextInput::make('email')
+                ->label('Email Kontak')
+                ->email()
+                ->maxLength(100),
+
+            TextInput::make('phone')
+                ->label('No. Telepon')
+                ->tel()
+                ->maxLength(20),
+
+            Select::make('student_id')
+                ->label('Siswa (Anak)')
+                ->options(Student::pluck('name', 'id'))
+                ->searchable()
+                ->nullable(),
+
+            Select::make('user_id')
+                ->label('Plot ke Akun User')
+                ->relationship('user', 'name')
+                ->searchable()
+                ->preload()
+                ->nullable()
+                ->helperText('Hubungkan orang tua ini ke akun login. NIO akan otomatis dijadikan username.')
+                ->getOptionLabelFromRecordUsing(fn (User $record) => "{$record->name} ({$record->email})")
+                ->placeholder('Belum diplot'),
+        ]);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('nio')->label('NIO')->badge()->color('gray')->searchable(),
+                TextColumn::make('name')->label('Nama')->searchable()->sortable(),
+                TextColumn::make('phone')->label('Telepon')->toggleable(),
+                TextColumn::make('siswa.name')
+                    ->label('Siswa / Anak')
+                    ->badge()
+                    ->color('info')
+                    ->default('-'),
+                TextColumn::make('user.name')
+                    ->label('Akun User')
+                    ->badge()
+                    ->color(fn ($state) => $state ? 'success' : 'gray')
+                    ->default('Belum diplot'),
             ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
+            ->actions([EditAction::make()])
+            ->bulkActions([BulkActionGroup::make([DeleteBulkAction::make()])]);
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListOrtus::route('/'),
+            'index'  => Pages\ListOrtus::route('/'),
             'create' => Pages\CreateOrtu::route('/create'),
-            'edit' => Pages\EditOrtu::route('/{record}/edit'),
+            'edit'   => Pages\EditOrtu::route('/{record}/edit'),
         ];
     }
 }

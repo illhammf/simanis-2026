@@ -2,7 +2,6 @@
 
 namespace App\Providers\Filament;
 
-use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -25,10 +24,8 @@ class SiswaPanelProvider extends PanelProvider
         return $panel
             ->id('siswa')
             ->path('siswa')
-            ->spa()
             ->login(false)
-            ->passwordReset()
-            ->registration()
+            ->spa()
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -40,7 +37,7 @@ class SiswaPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Siswa/Widgets'), for: 'App\\Filament\\Siswa\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                \App\Filament\Widgets\BackToModulWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -53,8 +50,14 @@ class SiswaPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->userMenuItems([
+                \Filament\Navigation\MenuItem::make()
+                    ->label('Pilihan Modul')
+                    ->url(fn () => route('dashboard'))
+                    ->icon('heroicon-m-squares-2x2'),
+            ])
             ->authMiddleware([
-                Authenticate::class,
+                \App\Http\Middleware\FilamentAuthenticate::class,
             ]);
     }
 }

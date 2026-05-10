@@ -20,6 +20,7 @@ Livewire::setScriptRoute(function ($handle) {
 / END
 */
 Route::get('/', \App\Livewire\Auth\LoginPage::class)->name('login');
+Route::view('/panduan', 'panduan')->name('panduan');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', \App\Livewire\Dashboard\DashboardPage::class)->name('dashboard');

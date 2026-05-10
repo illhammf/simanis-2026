@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Support\PanelResolver;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
@@ -25,8 +26,29 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'avatar_url',
         'name',
         'email',
+        'username',
         'password',
     ];
+
+    public function teacher(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Teacher::class);
+    }
+
+    public function student(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function ortu(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Ortu::class);
+    }
+
+    public function akademikStaff(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(AkademikStaff::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
@@ -64,7 +86,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+        return PanelResolver::canAccess($this, $panel->getId());
     }
 
     /** Only super_admin can impersonate others */

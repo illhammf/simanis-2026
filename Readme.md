@@ -1,5 +1,6 @@
-# SIMANIS
->sistem management siswa
+# SIMANIS-2026
+>Sistem Management Siswa
+>Contoh Project Pemrograman Web 2026
 
 ***
 
@@ -89,5 +90,9 @@ Setiap panel bertindak sebagai **gerbang masuk (gate)** yang berbeda ke dalam si
 * **One Account, One Role:** Menghindari kerancuan data.
 * **Read-Only Access:** Siswa dan Orang Tua dilarang keras memiliki fungsi *Update/Delete* pada data nilai.
 * **Impersonation:** Super Admin memiliki fitur "Login As" untuk membantu user yang mengalami kendala teknis.
+
+---
+
+### By 20240801102 - Ilham Firmansyah
 
 ***
