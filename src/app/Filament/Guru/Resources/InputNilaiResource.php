@@ -30,7 +30,7 @@ class InputNilaiResource extends Resource
     protected static ?string $navigationLabel = 'Input Nilai';
     protected static ?string $pluralModelLabel = 'Nilai Siswa';
     protected static ?string $modelLabel = 'Nilai';
-    protected static ?string $navigationIcon = 'heroicon-o-pencil-square';
+    protected static ?string $navigationIcon = 'heroicon-s-pencil-square';
     protected static ?int $navigationSort = 3;
 
     public static function getEloquentQuery(): Builder

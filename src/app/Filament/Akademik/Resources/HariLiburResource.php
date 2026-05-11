@@ -27,7 +27,7 @@ class HariLiburResource extends Resource
     protected static ?string $navigationLabel = 'Hari Libur';
     protected static ?string $pluralModelLabel = 'Hari Libur';
     protected static ?string $modelLabel = 'Hari Libur';
-    protected static ?string $navigationIcon = 'heroicon-o-calendar';
+    protected static ?string $navigationIcon = 'heroicon-s-calendar';
     protected static ?string $navigationGroup = 'Master Data';
     protected static ?int $navigationSort = 7;
 

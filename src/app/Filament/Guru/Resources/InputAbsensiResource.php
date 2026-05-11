@@ -30,7 +30,7 @@ class InputAbsensiResource extends Resource
     protected static ?string $navigationLabel = 'Absensi Siswa';
     protected static ?string $pluralModelLabel = 'Absensi Siswa';
     protected static ?string $modelLabel = 'Absensi';
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
+    protected static ?string $navigationIcon = 'heroicon-s-clipboard-document-check';
     protected static ?int $navigationSort = 4;
 
     public static function getEloquentQuery(): Builder

@@ -23,7 +23,7 @@ use Filament\Tables\Table;
 class AlurTujuanPembelajaranResource extends Resource
 {
     protected static ?string $model = AlurTujuanPembelajaran::class;
-    protected static ?string $navigationIcon = 'heroicon-o-arrow-trending-up';
+    protected static ?string $navigationIcon = 'heroicon-s-arrow-trending-up';
     protected static ?string $navigationGroup = 'Kurikulum & Pembelajaran';
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationLabel = 'ATP';

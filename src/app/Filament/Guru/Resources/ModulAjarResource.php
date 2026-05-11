@@ -35,7 +35,7 @@ class ModulAjarResource extends Resource
     protected static ?string $navigationLabel = 'Modul Ajar';
     protected static ?string $pluralModelLabel = 'Modul Ajar';
     protected static ?string $modelLabel = 'Modul Ajar';
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-s-document-text';
     protected static ?int $navigationSort = 2;
 
     public static function getEloquentQuery(): Builder

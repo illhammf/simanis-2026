@@ -14,7 +14,7 @@ class TahunAjaranResource extends Resource
 {
     protected static ?string $model = TahunAjaran::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-calendar';
+    protected static ?string $navigationIcon = 'heroicon-s-calendar';
     protected static ?string $navigationGroup = 'Master Data';
     protected static ?string $navigationLabel = 'Tahun Ajaran';
     protected static ?string $modelLabel = 'Tahun Ajaran';

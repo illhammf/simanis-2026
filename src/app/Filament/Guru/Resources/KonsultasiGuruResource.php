@@ -24,7 +24,7 @@ class KonsultasiGuruResource extends Resource
     protected static ?string $navigationLabel = 'Konsultasi Siswa';
     protected static ?string $pluralModelLabel = 'Konsultasi Siswa';
     protected static ?string $modelLabel = 'Konsultasi';
-    protected static ?string $navigationIcon = 'heroicon-o-chat-bubble-left-right';
+    protected static ?string $navigationIcon = 'heroicon-s-chat-bubble-left-right';
     protected static ?int $navigationSort = 5;
 
     public static function getEloquentQuery(): Builder

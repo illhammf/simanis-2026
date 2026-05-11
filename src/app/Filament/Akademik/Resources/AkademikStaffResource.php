@@ -19,7 +19,7 @@ use Filament\Tables\Table;
 class AkademikStaffResource extends Resource
 {
     protected static ?string $model = AkademikStaff::class;
-    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+    protected static ?string $navigationIcon = 'heroicon-s-briefcase';
     protected static ?string $navigationGroup = 'Data Pengguna';
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationLabel = 'Staff Akademik';

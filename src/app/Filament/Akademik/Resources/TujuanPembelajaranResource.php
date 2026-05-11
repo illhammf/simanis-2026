@@ -21,7 +21,7 @@ use Filament\Tables\Table;
 class TujuanPembelajaranResource extends Resource
 {
     protected static ?string $model = TujuanPembelajaran::class;
-    protected static ?string $navigationIcon = 'heroicon-o-bookmark-square';
+    protected static ?string $navigationIcon = 'heroicon-s-bookmark-square';
     protected static ?string $navigationGroup = 'Kurikulum & Pembelajaran';
     protected static ?int $navigationSort = 4;
     protected static ?string $navigationLabel = 'Tujuan Pembelajaran';

@@ -15,7 +15,7 @@ class StreamResource extends Resource
 {
     protected static ?string $model = Stream::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-squares-2x2';
+    protected static ?string $navigationIcon = 'heroicon-s-squares-2x2';
     protected static ?string $navigationGroup = 'Master Data';
     protected static ?string $navigationLabel = 'Stream / Peminatan';
     protected static ?string $modelLabel = 'Stream';

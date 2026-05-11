@@ -19,7 +19,7 @@ class JadwalAnakResource extends Resource
     protected static ?string $navigationLabel = 'Jadwal Anak';
     protected static ?string $pluralModelLabel = 'Jadwal Anak';
     protected static ?string $modelLabel = 'Jadwal';
-    protected static ?string $navigationIcon = 'heroicon-o-calendar-days';
+    protected static ?string $navigationIcon = 'heroicon-s-calendar-days';
     protected static ?int $navigationSort = 1;
 
     public static function getEloquentQuery(): Builder

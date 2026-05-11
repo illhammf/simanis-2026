@@ -20,7 +20,7 @@ use Filament\Tables\Table;
 class GuruResource extends Resource
 {
     protected static ?string $model = Teacher::class;
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-s-user-group';
     protected static ?string $navigationGroup = 'Data Pengguna';
     protected static ?int $navigationSort = 1;
     protected static ?string $navigationLabel = 'Guru';

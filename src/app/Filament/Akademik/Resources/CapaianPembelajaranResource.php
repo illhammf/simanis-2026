@@ -23,7 +23,7 @@ use Filament\Tables\Table;
 class CapaianPembelajaranResource extends Resource
 {
     protected static ?string $model = CapaianPembelajaran::class;
-    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+    protected static ?string $navigationIcon = 'heroicon-s-clipboard-document-list';
     protected static ?string $navigationGroup = 'Kurikulum & Pembelajaran';
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationLabel = 'Capaian Pembelajaran';

@@ -26,7 +26,7 @@ use Filament\Tables\Table;
 class ModulAjarResource extends Resource
 {
     protected static ?string $model = ModulAjar::class;
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-s-document-text';
     protected static ?string $navigationGroup = 'Kurikulum & Pembelajaran';
     protected static ?int $navigationSort = 5;
     protected static ?string $navigationLabel = 'Modul Ajar';

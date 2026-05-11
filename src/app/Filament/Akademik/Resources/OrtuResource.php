@@ -20,7 +20,7 @@ use Filament\Tables\Table;
 class OrtuResource extends Resource
 {
     protected static ?string $model = Ortu::class;
-    protected static ?string $navigationIcon = 'heroicon-o-users';
+    protected static ?string $navigationIcon = 'heroicon-s-users';
     protected static ?string $navigationGroup = 'Data Pengguna';
     protected static ?int $navigationSort = 3;
     protected static ?string $navigationLabel = 'Orang Tua';

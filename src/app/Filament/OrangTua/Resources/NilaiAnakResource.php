@@ -20,7 +20,7 @@ class NilaiAnakResource extends Resource
     protected static ?string $navigationLabel = 'Nilai Anak';
     protected static ?string $pluralModelLabel = 'Nilai Anak';
     protected static ?string $modelLabel = 'Nilai';
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar';
+    protected static ?string $navigationIcon = 'heroicon-s-chart-bar';
     protected static ?int $navigationSort = 2;
 
     public static function getEloquentQuery(): Builder

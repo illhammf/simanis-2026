@@ -24,7 +24,7 @@ use Filament\Tables\Table;
 class RuanganResource extends Resource
 {
     protected static ?string $model = Ruangan::class;
-    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
+    protected static ?string $navigationIcon = 'heroicon-s-building-office-2';
     protected static ?string $navigationGroup = 'Master Data';
     protected static ?int $navigationSort = 5;
     protected static ?string $navigationLabel = 'Ruangan';
