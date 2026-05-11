@@ -78,7 +78,8 @@
                 <p class="text-blue-200 text-sm font-medium mb-1">{{ $greeting }},</p>
                 <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">{{ auth()->user()->name }}</h1>
                 <p class="text-blue-200 text-sm mt-2 max-w-md">
-                    Selamat menggunakan SIMANIS. Pilih panel di bawah untuk mulai bekerja.
+                    Selamat menggunakan SIMANIS (Sistem Manajemen Informasi Sekolah). <br>Pilih panel di bawah untuk mulai bekerja yaa...
+                    <br> Semangat Kamu Kuliahnya...🤩💖
                 </p>
             </div>
             <div class="flex-shrink-0 hidden sm:block">
@@ -92,7 +93,7 @@
     {{-- ===== MAIN ===== --}}
     <main class="flex-1 max-w-6xl w-full mx-auto px-6 py-8">
 
-        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">Panel Tersedia</h2>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-5">Panel Tersedia:</h2>
 
         @if($this->modules)
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -183,7 +184,7 @@
     {{-- ===== FOOTER ===== --}}
     <footer class="text-center text-xs text-gray-400 py-5 border-t border-gray-200 mt-4">
         &copy; {{ date('Y') }} <span class="font-semibold text-gray-500">SIMANIS</span>
-        &mdash; Sistem Manajemen Informasi Sekolah
+        &mdash; Sistem Manajemen Informasi Sekolah by 20240801102 - Ilham Firmansyah
     </footer>
 
 </div>

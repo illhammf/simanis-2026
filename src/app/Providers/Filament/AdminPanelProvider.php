@@ -59,6 +59,12 @@ class AdminPanelProvider extends PanelProvider
                 NavigationGroup::make()
                     ->label('Kurikulum & Pembelajaran'),
                 NavigationGroup::make()
+                    ->label('Tugas - Rumah Sakit'),
+                NavigationGroup::make()
+                    ->label('Tugas - Perpustakaan'),
+                NavigationGroup::make()
+                    ->label('Tugas - Jual Beli'),
+                NavigationGroup::make()
                     ->label('Administration'),
             ])
             ->userMenuItems([

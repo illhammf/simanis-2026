@@ -26,6 +26,7 @@
                 </div>
                 <h1 class="text-3xl font-bold text-white tracking-wide">SIMANIS</h1>
                 <p class="text-blue-200 text-sm mt-1">Sistem Manajemen Informasi Sekolah</p>
+                <p class="text-blue-200 text-sm mt-20">20240801102 - Ilham Firmansyah</p>
             </div>
 
             {{-- Form --}}
@@ -180,7 +181,7 @@
                         Panduan Penggunaan Sistem
                     </a>
                 </p>
-                <p class="text-center text-blue-300 text-xs mt-2">&copy; {{ date('Y') }} SIMANIS &mdash; All rights reserved</p>
+                <p class="text-center text-blue-300 text-xs mt-2">&copy; {{ date('Y') }} SIMANIS &mdash; All Rights Reserved</p>
             </div>
 
         </div>

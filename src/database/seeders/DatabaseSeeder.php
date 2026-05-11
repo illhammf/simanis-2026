@@ -48,6 +48,21 @@ class DatabaseSeeder extends Seeder
 
             // ── Permissions ──
             AkademikRolePermissionSeeder::class,
+
+            // RUMAH SAKIT
+            PasienSeeder::class,
+            DokterSeeder::class,
+            PemeriksaanSeeder::class,
+
+            // PERPUSTAKAAN
+            BukuSeeder::class,
+            MahasiswaSeeder::class,
+            PeminjamanSeeder::class,
+
+            // JUAL BELI
+            ProdukSeeder::class,
+            PelangganSeeder::class,
+            TransaksiSeeder::class,
         ]);
     }
 }

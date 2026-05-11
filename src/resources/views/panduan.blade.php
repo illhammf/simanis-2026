@@ -144,7 +144,8 @@
                         <p class="text-blue-200 leading-relaxed text-sm">
                             <strong class="text-white">SIMANIS</strong> (Sistem Manajemen Informasi Sekolah) adalah aplikasi berbasis web
                             yang menyediakan panel terpisah untuk setiap peran — Admin, Akademik, Guru, Siswa, dan Orang Tua.
-                            Dokumen ini menjelaskan fitur-fitur yang tersedia di setiap panel secara lengkap.
+                            <br>Dokumen ini menjelaskan fitur-fitur yang tersedia di setiap panel secara lengkap.
+                            <br>Dibuatnya Sistem ini sebagai contoh implementasi dari Mata Kuliah Pemrograman Web 2026
                         </p>
                         <div class="flex flex-wrap gap-3 mt-6">
                             @foreach([
@@ -187,7 +188,7 @@
                 <div class="section-body space-y-5">
 
                     <div class="tip">
-                        <strong>Cara kerja:</strong> Saat Anda mengetik di kolom ID/Email, sistem langsung menampilkan
+                        <strong>Cara kerja:</strong> <br>Saat Anda mengetik di kolom ID/Email, sistem langsung menampilkan
                         petunjuk peran secara real-time. Jika format berupa angka, awalan NIA/NIG/NIO/NIS
                         otomatis ditambahkan berdasarkan jumlah digit.
                     </div>
@@ -688,6 +689,7 @@
         {{-- Footer --}}
         <footer class="text-center pb-6">
             <p class="text-slate-500 text-sm">&copy; {{ date('Y') }} SIMANIS &mdash; Sistem Manajemen Informasi Sekolah</p>
+            <p class="text-slate-500 text-sm">All Rights Reserved &mdash; Privacy Policy &mdash; by Ilham Firmansyah </p>
         </footer>
 
     </main>
