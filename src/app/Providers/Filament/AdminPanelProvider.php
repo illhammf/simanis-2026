@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Rupadana\ApiService\ApiServicePlugin;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -132,6 +133,7 @@ class AdminPanelProvider extends PanelProvider
                     ->shouldShowSanctumTokens(false)
                     ->shouldShowBrowserSessionsForm()
                     ->shouldShowAvatarForm(),
+                    ApiServicePlugin::make()
             ])
             ->resources([
                 config('filament-logger.activity_resource'),

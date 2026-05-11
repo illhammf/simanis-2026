@@ -17,9 +17,11 @@
         "joaopaulolndev/filament-edit-profile": "^1.0",
         "joshembling/image-optimizer": "^1.6",
         "laravel/framework": "^12.0",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
         "leek/filament-dicebear": "^1.2",
         "njxqlus/filament-progressbar": "*",
+        "rupadana/filament-api-service": "^3.4",
         "stechstudio/filament-impersonate": "^3.16",
         "z3d0x/filament-logger": "^0.8.0"
     },

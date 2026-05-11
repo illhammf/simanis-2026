@@ -1,0 +1,58 @@
+@baseUrl = https://simanis.test
+@token = ISI_TOKEN_KAMU_DI_SINI
+
+### AUTH LOGIN — dapatkan token
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password": "password"
+}
+
+### GET Semua Buku
+GET {{baseUrl}}/api/admin/bukus
+Authorization: Bearer {{token}}
+Accept: application/json
+
+
+### GET Detail Buku
+GET {{baseUrl}}/api/admin/bukus/1
+Authorization: Bearer {{token}}
+Accept: application/json
+
+
+### POST Tambah Buku
+POST {{baseUrl}}/api/admin/bukus
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "judul": "Belajar Laravel Filament",
+  "penulis": "Ilham Firmansyah",
+  "penerbit": "Informatika",
+  "tahun_terbit": 2026,
+  "stok": 10
+}
+
+
+### PUT Update Buku
+PUT {{baseUrl}}/api/admin/bukus/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Accept: application/json
+
+{
+  "judul": "Belajar Laravel Filament V3",
+  "penulis": "Ilham Firmansyah",
+  "penerbit": "Informatika",
+  "tahun_terbit": 2026,
+  "stok": 15
+}
+
+
+### DELETE Buku
+DELETE {{baseUrl}}/api/admin/bukus/1
+Authorization: Bearer {{token}}
+Accept: application/json
